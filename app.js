@@ -8,7 +8,7 @@ const routerPost = require('./routers/post');//importing the post router
 app.use('/post', routerPost);            //middleware
 
 app.get('/', (req,res) =>{               //creating routes
-    res.send('we are on home')
+    res.send('Local Host')
 });
 
 
