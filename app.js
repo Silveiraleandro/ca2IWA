@@ -3,13 +3,15 @@ const mongoose = require('mongoose');    //importing mongoose package
 const app = express();                   //executing express
 require('dotenv/config');                //requiering env for cryptografy
 
+const routerPost = require('./routers/post');//importing the post router
+
+app.use('/post', routerPost);            //middleware
+
 app.get('/', (req,res) =>{               //creating routes
     res.send('we are on home')
 });
 
-app.get('/posts', (req,res) =>{          //creating routes
-    res.send('we are on post')
-});
+
 // making the connection with mongodb using mongoose
 mongoose.connect(process.env.DbConnect,{ useNewUrlParser: true },()=>
  console.log('connected to mongodb'))
