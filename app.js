@@ -1,19 +1,22 @@
 var logger = require("morgan"),
 cors = require("cors"),
-http = require("http"),                   //importing http
-express = require('express'),      //importing express and saving it inside this file
-mongoose = require('mongoose'),    //importing mongoose package
-app = express(),                  //executing express
-bodyParser = require('body-parser');//importing body parser
-require('dotenv/config');                //requiering env for cryptografy
+http = require("http"),                     //importing http
+express = require('express'),               //importing express and saving it inside this file
+mongoose = require('mongoose'),             //importing mongoose package
+bodyParser = require('body-parser');        //importing body parser
+require('dotenv/config');                   //requiering env for cryptografy
 
-app.use(bodyParser.json());
+app = express(),                            //executing express
+port = process.env.PORT || 3000;
+const nbaC = require('./controllers/nba-controller');
+
+app.use(bodyParser.json());                 //middleware
 
 const routerPost = require('./routers/post');//importing the post router
 
-app.use('/post', routerPost);            //middleware
+app.use('/post', routerPost);               //middleware
 
-app.get('/', (req,res) =>{               //creating routes
+app.get('/', (req,res) =>{                  //creating routes
     res.send('Local Host')
 });
 
@@ -21,7 +24,9 @@ app.get('/', (req,res) =>{               //creating routes
 // making the connection with mongodb using mongoose
 mongoose.connect(process.env.DbConnect,{ useNewUrlParser: true },()=>
  console.log('connected to mongodb'))
-
-app.listen(3000);                        //server listening
+//server listening
+app.listen(port, function(err){
+    console.log("Listening on port:" + port);
+});                       
 
 
