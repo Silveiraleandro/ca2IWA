@@ -6,11 +6,11 @@ const postSchema = mongoose.Schema({     //creating and defining the mongoose sc
     require:true 
 },
     value:{ 
-        type:float,
+        type:Number,
     require:true 
 },
      team:{ 
-        type:float,
+        type:String,
     require:true 
 },  })
 
