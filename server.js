@@ -7,7 +7,7 @@ bodyParser = require("body-parser");        //importing body parser
 require('dotenv/config');                   //requiering env for cryptografy
 
 app = express(),                            //executing express
-port = process.env.PORT || 3000;
+port = process.env.PORT || 3000;            //defining the port to be used
 nbaCont = require('./controllers/nba-controller');
 
 app.use(bodyParser.json());                 //middleware

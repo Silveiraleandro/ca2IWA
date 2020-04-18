@@ -21,5 +21,35 @@ router.post('/nba', (req,res) => {
         res.json({message: err});
     });
 });
+router.get('/nba', (req,res) => {
+    const post = new post({
+        player:req.body.player,
+        value:req.body.value,
+        team:req.body.team
+
+    });
+    post.save()
+    .then(data =>{
+        res.json(data);
+    })
+    .catch(err => {
+        res.json({message: err});
+    });
+});
+router.delete('/nba', (req,res) => {
+    const post = new post({
+        player:req.body.player,
+        value:req.body.value,
+        team:req.body.team
+
+    });
+    post.save()
+    .then(data =>{
+        res.json(data);
+    })
+    .catch(err => {
+        res.json({message: err});
+    });
+});
 
 module.exports = router;  //exporting the router
