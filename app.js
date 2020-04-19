@@ -1,32 +1,31 @@
-var logger = require("morgan"),
-cors = require("cors"),
-http = require("http"),                     //importing http
-express = require('express'),               //importing express and saving it inside this file
-mongoose = require('mongoose'),             //importing mongoose package
-bodyParser = require('body-parser');        //importing body parser
-require('dotenv/config');                   //requiering env for cryptografy
-
-app = express(),                            //executing express
-port = process.env.PORT || 3000;
-const nbaC = require('./controllers/nba-controller');
-
-app.use(bodyParser.json());                 //middleware
-
-const routerPost = require('./routers/post');//importing the post router
-
-app.use('/post', routerPost);               //middleware
-
-app.get('/', (req,res) =>{                  //creating routes
-    res.send('Local Host')
-});
+const express = require('express');
+const path = require('path');
+const bodyParser = require('body-parser');
+const exphbs = require('express-handlebars');
+const applicationRoutes = require('./routes/application');
 
 
-// making the connection with mongodb using mongoose
-mongoose.connect(process.env.DbConnect,{ useNewUrlParser: true },()=>
- console.log('connected to mongodb'))
-//server listening
-app.listen(port, function(err){
-    console.log("Listening on port:" + port);
-});                       
+// MIDDLEWARE IMPORTS
+const morgan = require('morgan');
+// ROUTER IMPORTS
+
+const app = express();
+
+app.engine('handlebars', exphbs());
+app.set('view engine', 'handlebars');
+app.set('views', path.join(__dirname, 'public/views'));
+
+// MIDDLEWARE
+if(process.env.NODE_ENV === 'development') {
+    app.use(morgan('dev'));
+}
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+
+// ROUTES
+// Application Routes
+app.use('/', applicationRoutes);
 
 
+module.exports = app;
