@@ -1,4 +1,6 @@
-var NBA = require('../models/nba');
+var NBA = require('../models/nba'),
+express = require('express'),
+router = express.Router();
 
 router.get('/get/html', function(req, res) {
 

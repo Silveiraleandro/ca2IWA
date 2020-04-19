@@ -4,7 +4,7 @@ http = require("http"),                     //importing http
 express = require('express'),               //importing express and saving it inside this file
 mongoose = require('mongoose'),             //importing mongoose package
 bodyParser = require("body-parser");        //importing body parser
-require('dotenv/config');                   //requiering env for cryptografy
+require('dotenv').config();                 //requiering env for cryptografy
 
 app = express(),                            //executing express
 port = process.env.PORT || 3000;            //defining the port to be used
@@ -12,9 +12,9 @@ nbaCont = require('./controllers/nba-controller');
 
 app.use(bodyParser.json());                 //middleware
 
-const routerPost = require('./controllers/routes');//importing the post router
+// const routerPost = require('./controllers/routes');//importing the post router
 
-app.use('/controllers', routerPost);               //middleware
+// app.use('/controllers', routerPost);               //middleware
 
 app.get('/', (req,res) =>{                  //creating routes
     res.send('Local Host')
