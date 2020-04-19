@@ -1,4 +1,4 @@
-var NBA = require('../models/nba'),
+var NBA = require('../models/nbaPlayer'),
 express = require('express'),
 router = express.Router();
 

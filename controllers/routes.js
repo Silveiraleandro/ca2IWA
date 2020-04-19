@@ -1,6 +1,6 @@
 const express = require('express');      //importing express and saving it inside this file
 const router = express.Router();         //calling the router with express
-const post = require('../models/nba');
+const post = require('../models/nbaPlayer');
 
 router.get('/nba', (req,res) => {          //creating routes
     res.send('posting in the url');
