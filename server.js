@@ -1,32 +1,23 @@
-var logger = require("morgan"),
-cors = require("cors"),
-http = require("http"),                     //importing http
-express = require('express'),               //importing express and saving it inside this file
-mongoose = require('mongoose'),             //importing mongoose package
-bodyParser = require("body-parser");        //importing body parser
-require('dotenv').config();                 //requiering env for cryptografy
+const mongoose = require('mongoose');
+const dotenv = require('dotenv');
+//requiering env to hide the db password
+dotenv.config({ path: './config.env'});
 
-app = express(),                            //executing express
-port = process.env.PORT || 3000;            //defining the port to be used
-nbaCont = require('./controllers/nba-controller');
-
-app.use(bodyParser.json());                 //middleware
-
-// const routerPost = require('./controllers/routes');//importing the post router
-
-// app.use('/controllers', routerPost);               //middleware
-
-app.get('/', (req,res) =>{                  //creating routes
-    res.send('Local Host')
+const server = require('./app');
+// making the connection with mongodb using mongoose
+mongoose.connect(
+  process.env.DATABASE.replace('<PASSWORD>', process.env.DATABASE ),
+  {
+      useNewUrlParser: true,
+      useCreateIndex: true,
+      useFindAndModify: false,
+      useUnifiedTopology: true
+  }
+).then(() => {
+    console.dir('DataBase Connected');
 });
 
-
-// making the connection with mongodb using mongoose
-mongoose.connect(process.env.DbConnect,{ useNewUrlParser: true },()=>
- console.log('connected to mongodb'))
+//defining port
+const PORT = process.env.PORT || 3000;
 //server listening
-app.listen(port, function(err){
-    console.log("Listening on port:" + port);
-});                       
-
-
+server.listen(PORT, () => console.dir(`Server is running on PORT:${PORT}`));
