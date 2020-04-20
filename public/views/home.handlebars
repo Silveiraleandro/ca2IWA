@@ -9,7 +9,7 @@
                     <table class="table">
                         <thead>
                         <tr>
-                            <th scope="col">Player</th>
+                            <th scope="col">Sec Number</th><th scope="col">Player</th>
                             <th scope="col">Value</th>
                             <th scope="col">Team</th>
                             <th scope="col">Action</th>
@@ -20,24 +20,25 @@
                         <form action="/delete" method="POST">
                             <input type="hidden" value="{{_id}}" name="id">
                             <tr>
-                                <td>{{player}}</td>
+                                <td>{{secIn}}</td>                                                                                                                                                                                                <td>{{player}}</td>
                                 <td>{{value}}</td>
                                 <td>{{team}}</td>
                                 <td><button type="submit" class="btn btn-danger">Delete</button></td>
                             </tr>
                         </form>
-                        {{/each}}
+                        {{/each}} 
                         </tbody>
                     </table>
                 </div>
                 <div class="col-lg-3 text-center order-2">
+                    
                     <form action="/" method="POST">
                         <div class="form-group">
-                            <select class="form-control" name="sec_n">
-                                <option value="0">Shooting Guard</option>
-                                <option value="1">Point Guards</option>
-                                <option value="2">Power Forward</option>
-                                <option value="3">Small Forward</option>
+                          <select class="form-control" name="secIn">
+                                <option value="Shooting Guard">Shooting Guard</option>
+                                <option value="Point Guards">Point Guards</option>
+                                <option value="Power Forward">Power Forward</option>
+                                <option value="Small Forward">Small Forward</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -51,6 +52,7 @@
                         </div>
                         <button type="submit" class="btn btn-primary btn-block">Submit</button>
                     </form>
+                             
                 </div>
             </div>
     </div>
