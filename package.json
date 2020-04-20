@@ -4,7 +4,7 @@
   "description": "json for the CA 2",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon app.js"
+    "dev": "nodemon server.js"
   },
   "repository": {
     "type": "git",
