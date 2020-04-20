@@ -10,10 +10,12 @@ const morgan = require('morgan');
 // ROUTER IMPORTS
 
 const app = express();
-
+app.use(express.static('public/assets/css'));
+app.use(express.static('public/assets/boostrap.min.js'));
 app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
 app.set('views', path.join(__dirname, 'public/views'));
+
 
 // MIDDLEWARE
 if(process.env.NODE_ENV === 'development') {
