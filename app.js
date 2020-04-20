@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 const exphbs = require('express-handlebars');
-const applicationRoutes = require('./routes/application');
+const applicationRoutes = require('./routes/nba');
 
 
 // MIDDLEWARE IMPORTS

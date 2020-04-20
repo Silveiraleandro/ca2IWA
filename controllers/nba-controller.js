@@ -1,4 +1,4 @@
-const NbaPlayer = require('./../models/nbaPlayer');
+const NbaPlayer = require('../models/nbaPlayer');
 
 exports.home = async (req, res, next) => {
   const _players = await NbaPlayer.find({});

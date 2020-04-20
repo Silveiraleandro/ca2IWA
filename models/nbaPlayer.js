@@ -1,4 +1,3 @@
-const mongoose = require('mongoose');    
 const mongoose = require('mongoose');
 //creating and defining the mongoose schema for the db 
 const nbaPlayerSchema = new mongoose.Schema({
