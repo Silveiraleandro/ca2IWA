@@ -13,4 +13,10 @@ router
   .route('/delete')
   .post(applicationController.deleteNbaPlayer);
 
+  //router to update players and post it
+router
+  .route('/update')
+  .get(applicationController.home)
+  .post(applicationController.createNbaPlayer);
+
   module.exports = router;

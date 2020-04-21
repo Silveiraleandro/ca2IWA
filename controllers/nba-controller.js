@@ -20,3 +20,9 @@ exports.deleteNbaPlayer = async (req, res, next) => {
 
   res.redirect('/');
 };
+//updating an object player and redirecting the index page
+exports.updateNbaPlayer = async (req, res, next) => {
+    await NbaPlayer.findByIdAndUpdate(req.body.id);
+
+    res.redirect('/');
+}
