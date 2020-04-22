@@ -23,7 +23,7 @@
                                 <form action="/{{_id}}" method="POST">
                                     <input type="hidden" name="_method" value="PUT">
                                     <td><input type="text" class="form-control" value="{{secIn}}"disabled></td>
-                                    <td><input class="form-control" pattern="[A-Za-z_]{1,32}" type="text" name="player"
+                                    <td><input class="form-control" pattern="[A-Za-z_]{1,32_}" type="text" name="player"
                                                value="{{player}}"></td>
                                     <td><input class="form-control" type="number" name="value" value="{{value}}"></td>
                                     <td><input class="form-control" type="text" name="team" value="{{team}}"></td>
@@ -55,7 +55,7 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <input class="form-control" pattern="[A-Za-z]{1,32}" type="text" name="player" placeholder="player">
+                            <input class="form-control" pattern="[A-Za-z_]{1,32_}" type="text" name="player" placeholder="player">
                         </div>
                         <div class="form-group">
                             <input class="form-control" type="number" name="value" placeholder="value">
