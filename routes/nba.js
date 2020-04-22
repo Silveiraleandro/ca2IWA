@@ -7,11 +7,11 @@ const applicationController = require('./../controllers/nba-controller');
 router
   .route('/')
   .get(applicationController.home)
-  .post(applicationController.createNbaPlayer);
+  .post(applicationController.createNbaPlayer)
   .delete(applicationController.deleteNbaPlayer);
 //router to delete players
 router
   .route('/:id')
-  .post(applicationController.updateNbaPlayer);
+  .put(applicationController.updateNbaPlayer);
 
   module.exports = router;
