@@ -9,24 +9,35 @@
                     <table class="table">
                         <thead>
                         <tr>
-                            <th scope="col">Player Position</th><th scope="col">Player</th>
+                            <th scope="col">Player Position</th>
                             <th scope="col">Value</th>
                             <th scope="col">Team</th>
-                            <th scope="col">Action</th>
+                            <th scope="col" colspan= "2">Action</th>
                         </tr>
                         </thead>
                         <tbody>
                         <!--handlebars for each-->
-                        {{#each players}}
-                        <form action="/delete" method="POST">
-                            <input type="hidden" value="{{_id}}" name="id">
+                          {{#each players}}
                             <tr>
-                                <td>{{secIn}}</td>                                                                                                                                                                                                <td>{{player}}</td>
-                                <td>{{value}}</td>
-                                <td>{{team}}</td>
-                                <td><button type="submit" class="btn btn-danger">Delete</button></td>
+                                <form action="/{{_id}}" method="POST">
+                                    <input type="hidden" name="_method" value="PUT">
+                                    <td><input type="text" class="form-control" value="{{secIn}}" disabled></td>
+                                    <td><input class="form-control" pattern="[A-Za-z]{1,32}" type="text" name="player"
+                                               value="{{player}}"></td>
+                                    <td><input class="form-control" type="number" name="value" value="{{value}}"></td>
+                                    <td><input class="form-control" type="text" name="team" value="{{team}}"></td>
+                                    <td>
+                                        <button type="submit" class="btn btn-success">Update</button>
+                                    </td>
+                                </form>
+                                <form method="POST" action="/" enctype="application/x-www-form-urlencoded">
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <input type="hidden" value="{{_id}}" name="id">
+                                    <td>
+                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                    </td>
+                                </form>
                             </tr>
-                        </form>
                         {{/each}} 
                         </tbody>
                     </table>

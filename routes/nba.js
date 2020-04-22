@@ -8,15 +8,10 @@ router
   .route('/')
   .get(applicationController.home)
   .post(applicationController.createNbaPlayer);
+  .delete(applicationController.deleteNbaPlayer);
 //router to delete players
 router
-  .route('/delete')
-  .post(applicationController.deleteNbaPlayer);
-
-  //router to update players and post it
-router
-  .route('/update')
-  .get(applicationController.home)
-  .post(applicationController.createNbaPlayer);
+  .route('/:id')
+  .post(applicationController.updateNbaPlayer);
 
   module.exports = router;

@@ -14,15 +14,18 @@ exports.createNbaPlayer = async (req, res, next) => {
   const player = await NbaPlayer.create(req.body);
   res.redirect('/');
 };
+//updating an object player and redirecting the index page
+exports.updateNbaPlayer = async (req, res, next) => {
+    const player = await NbaPlayer.findByIdAndUpdate(req.params.id, req.body,{
+    new: true,
+    runValidators: true
+    });
+    
+    res.redirect('/');
+};
 //deleting an object player and redirecting the index page
 exports.deleteNbaPlayer = async (req, res, next) => {
   await NbaPlayer.findByIdAndDelete(req.body.id);
 
   res.redirect('/');
 };
-//updating an object player and redirecting the index page
-exports.updateNbaPlayer = async (req, res, next) => {
-    await NbaPlayer.findByIdAndUpdate(req.body.id);
-
-    res.redirect('/');
-}
