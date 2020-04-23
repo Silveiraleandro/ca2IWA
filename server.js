@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
-//requiering env to hide the db password
+//requiering env to hide the db variables
 dotenv.config({ path: './config.env'});
 
 const server = require('./app');
