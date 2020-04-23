@@ -6,7 +6,7 @@ const methodOverride = require('method-override');
 const applicationRoutes = require('./routes/nba');
 
 
-// MIDDLEWARE IMPORTS
+// MIDDLEWARE IMPORTSs
 const morgan = require('morgan');
 // ROUTER IMPORTS
 
@@ -35,7 +35,7 @@ app.use(methodOverride(function (req, res) {
     }
 }));
 // ROUTES
-// Application Routes
+// Application Routes 
 app.use('/', applicationRoutes);
 
 

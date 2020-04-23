@@ -9,7 +9,7 @@ router
   .get(applicationController.home)
   .post(applicationController.createNbaPlayer)
   .delete(applicationController.deleteNbaPlayer);
-//router to delete players
+//router to delete objects players
 router
   .route('/:id')
   .put(applicationController.updateNbaPlayer);
