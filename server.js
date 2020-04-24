@@ -6,7 +6,7 @@ dotenv.config({ path: './config.env'});
 const server = require('./app');
 // making the connection with mongodb using mongoose
 mongoose.connect(
-  process.env.DATABASE.replace('<PASSWORD>', process.env.DATABASE ),
+  (process.env.DATABASE ),
   {
       useNewUrlParser: true,
       useCreateIndex: true,
